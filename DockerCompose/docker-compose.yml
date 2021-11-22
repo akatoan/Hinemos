@@ -1,0 +1,56 @@
+version: '3'
+
+services:
+  hinemos-6.2-manager:
+    image: akatoan/hinemos-6.2-manager:v4
+    user: root
+    container_name: hinemos-6.2-manager
+    hostname: hinemos-6.2-manager
+    command: bash
+    stdin_open: true
+    tty: true
+    networks:
+      hinemos_network:
+        ipv4_address: 10.244.0.2
+    restart: always
+    ports:
+      - 88:80
+
+  hinemos-6.2-agent:
+    image: akatoan/hinemos-6.2-agent:v4
+    user: root
+    container_name: hinemos-6.2-agent01
+    hostname: h-agent01
+    command: bash -c 'bash /home/start.sh; bash'
+    stdin_open: true
+    tty: true
+    networks:
+      hinemos_network:
+        ipv4_address: 10.244.0.3
+    restart: always
+    depends_on:
+      - hinemos-6.2-manager
+
+  hinemos-6.2-agent-win:
+    image: akatoan/hinemos-6.2-agent-win:v1
+    user: ContainerAdministrator
+    container_name: hinemos-6.2-agent02
+    hostname: h-agent02
+    command: cmd
+    stdin_open: true
+    tty: true
+    networks:
+      hinemos_network:
+        ipv4_address: 10.244.0.4
+    restart: always
+    depends_on:
+      - hinemos-6.2-manager
+
+networks:
+  hinemos_network:
+    name: hinemos_network
+    driver: nat
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.244.0.0/24
