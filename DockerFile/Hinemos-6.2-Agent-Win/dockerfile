@@ -1,0 +1,4 @@
+FROM    akatoan/hinemos-6.2-agent-win:v1
+COPY    Agent.properties C:/Hinemos/Agent6.2.2/conf/Agent.properties
+USER    ContainerAdministrator
+CMD     ["cmd"]
