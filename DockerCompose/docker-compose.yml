@@ -2,7 +2,7 @@ version: '3'
 
 services:
   hinemos-6.2-manager:
-    image: akatoan/hinemos-6.2-manager:v4
+    image: akatoan/hinemos-6.2-manager:v5
     user: root
     container_name: hinemos-6.2-manager
     hostname: hinemos-6.2-manager
@@ -17,7 +17,7 @@ services:
       - 88:80
 
   hinemos-6.2-agent:
-    image: akatoan/hinemos-6.2-agent:v4
+    image: akatoan/hinemos-6.2-agent:v5
     user: root
     container_name: hinemos-6.2-agent01
     hostname: h-agent01
