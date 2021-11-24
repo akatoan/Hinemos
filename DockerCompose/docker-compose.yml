@@ -32,7 +32,7 @@ services:
       - hinemos-6.2-manager
 
   hinemos-6.2-agent-win:
-    image: akatoan/hinemos-6.2-agent-win:v1
+    image: akatoan/hinemos-6.2-agent-win:v2
     user: ContainerAdministrator
     container_name: hinemos-6.2-agent02
     hostname: h-agent02
