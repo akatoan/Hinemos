@@ -14,7 +14,7 @@
 1. work directoryの設定  
   `cd <dockercompose.yml格納ディレクトリ>`
 1. docker-compose upの実行  
-  `docker-compose -d`
+  `docker-compose up -d`
   
 ### dockerfile
 1. dockerfileのダウンロード
